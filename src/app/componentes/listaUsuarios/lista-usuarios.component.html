@@ -4,7 +4,7 @@
   <div class="d-flex justify-content-between mb-3">
     <button class="btn btn-primary" (click)="navigateTo('/usuario/new')">Nuevo Usuario</button>
 
-    <select class="form-select w-25" [(ngModel)]="userTypeFilter" (change)="filtrarUsuarios()">
+    <select class="form-select w-25" [(ngModel)]="filtroUsuario" (change)="filtrarUsuarios()">
       <option value="">Todos</option>
       <option value="Demandante">Demandante</option>
       <option value="Empleado">Empleado</option>

@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaUsuariosComponent } from './componentes/listaUsuarios/lista-usuarios.component';
 import { FormularioUsuarioComponent } from './componentes/formularioUsuario/formulario-usuario.component';
-import { DetalleUsuarioComponent } from './componentes/detalleUsuario/detalle-usuario.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -12,8 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     ListaUsuariosComponent,
-    FormularioUsuarioComponent,
-    DetalleUsuarioComponent
+    FormularioUsuarioComponent
   ],
   imports: [
     BrowserModule,
