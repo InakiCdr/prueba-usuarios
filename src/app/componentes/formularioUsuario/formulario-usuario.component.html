@@ -1,0 +1,60 @@
+<div class="container">
+  <h2>{{ isEditMode ? 'Editar Usuario' : 'Nuevo Usuario' }}</h2>
+
+  <form [formGroup]="formularioUsuario" (ngSubmit)="saveUser()">
+    <div class="mb-3">
+      <label>Tipo de Usuario:</label>
+      <select class="form-select" formControlName="type">
+        <option value="">Seleccione...</option>
+        <option value="Demandante">Demandante</option>
+        <option value="Empleado">Empleado</option>
+      </select>
+      <div *ngIf="formularioUsuario.get('tipo')?.invalid && formularioUsuario.get('tipo')?.touched" class="text-danger">
+        Este campo es obligatorio.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>NIF o Pasaporte:</label>
+      <input type="text" class="form-control" formControlName="nif" />
+      <div *ngIf="formularioUsuario.get('nif')?.invalid && formularioUsuario.get('nif')?.touched" class="text-danger">
+        Ingrese un NIF válido (8 números + 1 letra).
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Nombre:</label>
+      <input type="text" class="form-control" formControlName="name" />
+      <div *ngIf="formularioUsuario.get('nombre')?.invalid && formularioUsuario.get('nombre')?.touched" class="text-danger">
+        Este campo es obligatorio.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>1er Apellido:</label>
+      <input type="text" class="form-control" formControlName="lastName1" />
+      <div *ngIf="formularioUsuario.get('apellido1')?.invalid && formularioUsuario.get('apellido1')?.touched" class="text-danger">
+        Este campo es obligatorio.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>2 - Apellido:</label>
+      <input type="text" class="form-control" formControlName="apellido2" />
+    </div>
+
+    <div class="mb-3">
+      <label>Dirección:</label>
+      <input type="text" class="form-control" formControlName="direccion.calle" placeholder="Calle" />
+      <input type="text" class="form-control mt-2" formControlName="direccion.numero" placeholder="Número" />
+      <input type="text" class="form-control mt-2" formControlName="direccion.codPostal" placeholder="Código Postal" />
+      <input type="text" class="form-control mt-2" formControlName="direccion.ciudad" placeholder="Ciudad" />
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="formularioUsuario.invalid">
+      {{ isEditMode ? 'Guardar Cambios' : 'Crear Usuario' }}
+    </button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="router.navigate(['/'])">Cancelar</button>
+  </form>
+</div>
+
